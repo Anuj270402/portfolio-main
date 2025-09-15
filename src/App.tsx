@@ -71,8 +71,8 @@ function App() {
     backend: [
       { name: 'Node.js', percentage: 88, color: 'bg-gradient-to-r from-green-600 to-green-500' },
       { name: 'MongoDB', percentage: 80, color: 'bg-gradient-to-r from-emerald-500 to-green-600' },
-      { name: 'Express', percentage: 87, color: 'bg-gradient-to-r from-emerald-500 to-green-600' }
-      
+      { name: 'Express', percentage: 87, color: 'bg-gradient-to-r from-emerald-500 to-green-600' },
+     
     ]
   };
 
@@ -100,26 +100,28 @@ function App() {
       liveUrl: ''
     },
     {
-      title: 'Task Management App',
+      title: 'Eleglance-Perfume-FrontEnd',
       description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      longDescription: 'A sophisticated task management application designed for team collaboration. Built with Vue.js and Socket.io for real-time updates, this application provides an intuitive interface for managing projects, tasks, and team workflows. Features include drag-and-drop task organization, real-time notifications, and comprehensive reporting.',
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Vue.js', 'Express', 'Socket.io', 'PostgreSQL'],
+      longDescription: 'A sophisticated task management application designed for team collaboration. Built with React and Express for real-time updates, this application provides an intuitive interface for managing projects, tasks, and team workflows. Features include drag-and-drop task organization, real-time notifications, and comprehensive reporting.',
+      image: 'https://cdn.shortpixel.ai/spai/w_1750+q_lossless+ret_img+to_webp/websitedemos.net/inessa-perfumes-04/wp-content/uploads/sites/1112/2022/07/demo-screenshot.jpg',
+      technologies: ['React', 'Express', 'MongoDB', 'Tailwind CSS'],
       features: [
-        'Real-time collaboration with Socket.io',
-        'Drag-and-drop task organization',
-        'Project and team management',
-        'Time tracking and reporting',
-        'File attachments and comments',
-        'Custom workflows and statuses',
-        'Email and in-app notifications',
-        'Advanced filtering and search'
+        "Explore premium fragrances categorized by notes, occasions, and brands.",
+        "AI-powered tool to match perfumes with your personality and mood.",
+        "Create your own signature fragrance with personalized blends.",
+        "Learn about our heritage and craftsmanship in the Our Story section.",
+        "Handpicked perfumes for birthdays, anniversaries, and special occasions.",
+        "Real feedback from fragrance lovers to help in decision-making.",
+        "Save perfumes you love for easy access later.",
+        "Smooth checkout, safe payments, and order tracking.",
+        "Tips, trends, and fragrance layering ideas from experts.",
+        "Be the first to know about new launches and limited editions."
       ],
       duration: '4 months',
       teamSize: '3 developers',
       role: 'Lead Frontend Developer',
-      githubUrl: '',
-      liveUrl: 'https://example.com'
+      githubUrl: 'https://github.com/AnshikSuhane/frontend',
+      liveUrl: 'https://perfumes-steel.vercel.app'
     },
     {
       title: 'Weather Analytics Dashboard',
@@ -140,7 +142,7 @@ function App() {
       duration: '2 months',
       teamSize: '1 developer',
       role: 'Solo Full Stack Developer',
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/AnshikSuhane/frontend',
       liveUrl: 'https://example.com'
     }
   ];
@@ -165,7 +167,7 @@ function App() {
             <img
                src={personal}
               alt="Profile"
-              className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl shadow-blue-500/50"
+              className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl shadow-blue-500/50"
             />
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
@@ -195,7 +197,7 @@ function App() {
             >
               View My Work
             </button>
-            <a href="https://drive.google.com/file/d/1twHs0KAikQmb2iFPdrTmzQjKdVAfGwEl/view?usp=sharing" download={"Anuj_Suhane_Resume.pdf"} className="w-full sm:w-auto">
+            <a href="https://drive.google.com/file/d/1mFyzEMPPThzMm2LkhldGY-2FAHwTFVJI/view?usp=sharing" download={"Anuj_Suhane_Resume.pdf"} className="w-full sm:w-auto">
               <button
                 className="px-8 py-4 border-2 border-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:bg-opacity-20 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
               >
@@ -224,14 +226,15 @@ function App() {
               <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
                 <h3 className="text-2xl font-semibold mb-6 text-blue-400">Who I Am</h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  I'm a passionate Full Stack Developer with over 5 years of experience in creating 
-                  robust web applications. I specialize in modern JavaScript frameworks and have a 
-                  strong background in both frontend and backend development.
+                 "I'm a passionate Full Stack Developer, recently completed my Full Stack Development course. 
+                 I specialize in modern JavaScript frameworks like React and Node.js, and I have hands-on 
+                 experience in building projects that cover both frontend and backend development.
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  My journey in web development started with a curiosity about how websites work, 
-                  and it has evolved into a deep passion for creating seamless user experiences 
-                  and scalable applications.
+                 My journey in web development started with a curiosity about how websites work,
+                  and it has grown into a strong passion for creating seamless user experiences
+                   and scalable applications. As a fresher, I’m eager to contribute my skills,
+                    keep learning, and grow with real-world challenges.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 text-blue-400">
