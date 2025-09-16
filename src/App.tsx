@@ -1,29 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from 'react';
-import { Navigation } from './components/Navigation';
-import { ParticleBackground } from './components/ParticleBackground';
-import { TypingAnimation } from './components/TypingAnimation';
-import { SkillBar } from './components/SkillBar';
-import { ProjectCard } from './components/ProjectCard';
-import { ContactForm } from './components/ContactForm';
-import { ProjectModal } from './components/ProjectModal';
-import { ScrollToTop } from './components/ScrollToTop';
-import { LoadingSpinner } from './components/LoadingSpinner';
-import personal from './assets/personal.png';
-import { smoothScrollTo, getCurrentSection } from './utils/smoothScroll';
-import { 
-  
-  Code, 
-  Database, 
-  Server, 
-  
-  Mail, 
-  Phone, 
+import { useState, useEffect } from "react";
+import { Navigation } from "./components/Navigation";
+import { ParticleBackground } from "./components/ParticleBackground";
+import { TypingAnimation } from "./components/TypingAnimation";
+import { SkillBar } from "./components/SkillBar";
+import { ProjectCard } from "./components/ProjectCard";
+import { ContactForm } from "./components/ContactForm";
+import { ProjectModal } from "./components/ProjectModal";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { LoadingSpinner } from "./components/LoadingSpinner";
+import personal from "./assets/personal.png";
+import { smoothScrollTo, getCurrentSection } from "./utils/smoothScroll";
+import {
+  Code,
+  Database,
+  Server,
+  Mail,
+  Phone,
   MapPin,
-  Download} from 'lucide-react';
+  Download,
+} from "lucide-react";
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,13 +37,20 @@ function App() {
   }, []);
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "contact",
+      ];
       const currentSection = getCurrentSection(sections);
       setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavigation = (sectionId: string) => {
@@ -53,58 +59,109 @@ function App() {
     setIsMenuOpen(false);
   };
 
-  
   const skills = {
     frontend: [
-      { name: 'React', percentage: 95, color: 'bg-gradient-to-r from-blue-500 to-cyan-500' },
-      { name: 'TypeScript', percentage: 90, color: 'bg-gradient-to-r from-blue-600 to-blue-400' },
-      { name: 'Vuejs', percentage: 85, color: 'bg-gradient-to-r from-green-500 to-green-400' },
-      { name: 'Tailwind CSS', percentage: 92, color: 'bg-gradient-to-r from-teal-500 to-cyan-400' },
-      { name: 'Css', percentage: 82, color: 'bg-gradient-to-r from-blue-600 to-indigo-600' },
-      { name: 'Html5', percentage: 85, color: 'bg-gradient-to-r from-yellow-500 to-green-500' },
-      { name: 'JavaScript', percentage: 90, color: 'bg-gradient-to-r from-yellow-500 to-orange-500' },
-      { name: 'Clerk', percentage: 80, color: 'bg-gradient-to-r from-purple-600 to-pink-500' },
+      {
+        name: "React",
+        percentage: 95,
+        color: "bg-gradient-to-r from-blue-500 to-cyan-500",
+      },
+      {
+        name: "TypeScript",
+        percentage: 90,
+        color: "bg-gradient-to-r from-blue-600 to-blue-400",
+      },
+      {
+        name: "Vuejs",
+        percentage: 85,
+        color: "bg-gradient-to-r from-green-500 to-green-400",
+      },
+      {
+        name: "Tailwind CSS",
+        percentage: 92,
+        color: "bg-gradient-to-r from-teal-500 to-cyan-400",
+      },
+      {
+        name: "Css",
+        percentage: 82,
+        color: "bg-gradient-to-r from-blue-600 to-indigo-600",
+      },
+      {
+        name: "Html5",
+        percentage: 85,
+        color: "bg-gradient-to-r from-yellow-500 to-green-500",
+      },
+      {
+        name: "JavaScript",
+        percentage: 90,
+        color: "bg-gradient-to-r from-yellow-500 to-orange-500",
+      },
+      {
+        name: "Clerk",
+        percentage: 80,
+        color: "bg-gradient-to-r from-purple-600 to-pink-500",
+      },
       // { name: '', percentage: 90, color: 'bg-gradient-to-r from-blue-600 to-purple-500' },
-      { name: 'Redux', percentage: 85, color: 'bg-gradient-to-r from-blue-500 to-indigo-500' },
-      
+      {
+        name: "Redux",
+        percentage: 85,
+        color: "bg-gradient-to-r from-blue-500 to-indigo-500",
+      },
     ],
     backend: [
-      { name: 'Node.js', percentage: 88, color: 'bg-gradient-to-r from-green-600 to-green-500' },
-      { name: 'MongoDB', percentage: 80, color: 'bg-gradient-to-r from-emerald-500 to-green-600' },
-      { name: 'Express', percentage: 87, color: 'bg-gradient-to-r from-emerald-500 to-green-600' },
-     
-    ]
+      {
+        name: "Node.js",
+        percentage: 88,
+        color: "bg-gradient-to-r from-green-600 to-green-500",
+      },
+      {
+        name: "MongoDB",
+        percentage: 80,
+        color: "bg-gradient-to-r from-emerald-500 to-green-600",
+      },
+      {
+        name: "Express",
+        percentage: 87,
+        color: "bg-gradient-to-r from-emerald-500 to-green-600",
+      },
+    ],
   };
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and payment processing.',
-      longDescription: 'A comprehensive e-commerce platform built from the ground up with modern web technologies. This project showcases full-stack development skills including user authentication, payment processing, inventory management, and responsive design. The platform supports multiple user roles, real-time notifications, and advanced search functionality.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
+      title: "E-Commerce Platform",
+      description:
+        "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and payment processing.",
+      longDescription:
+        "A comprehensive e-commerce platform built from the ground up with modern web technologies. This project showcases full-stack development skills including user authentication, payment processing, inventory management, and responsive design. The platform supports multiple user roles, real-time notifications, and advanced search functionality.",
+      image:
+        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
       features: [
-        'User authentication and authorization',
-        'Shopping cart and wishlist functionality',
-        'Secure payment processing with Stripe',
-        'Admin dashboard for product management',
-        'Real-time inventory tracking',
-        'Order history and tracking',
-        'Responsive design for all devices',
-        'Email notifications and confirmations'
+        "User authentication and authorization",
+        "Shopping cart and wishlist functionality",
+        "Secure payment processing with Stripe",
+        "Admin dashboard for product management",
+        "Real-time inventory tracking",
+        "Order history and tracking",
+        "Responsive design for all devices",
+        "Email notifications and confirmations",
       ],
-      duration: '3 months',
-      teamSize: '2 developers',
-      role: 'Full Stack Developer',
-      githubUrl: 'https://github.com',
-      liveUrl: ''
+      duration: "3 months",
+      teamSize: "2 developers",
+      role: "Full Stack Developer",
+      githubUrl: "https://github.com",
+      liveUrl: "",
     },
     {
-      title: 'Eleglance-Perfume-FrontEnd',
-      description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      longDescription: 'A sophisticated task management application designed for team collaboration. Built with React and Express for real-time updates, this application provides an intuitive interface for managing projects, tasks, and team workflows. Features include drag-and-drop task organization, real-time notifications, and comprehensive reporting.',
-      image: 'https://cdn.shortpixel.ai/spai/w_1750+q_lossless+ret_img+to_webp/websitedemos.net/inessa-perfumes-04/wp-content/uploads/sites/1112/2022/07/demo-screenshot.jpg',
-      technologies: ['React', 'Express', 'MongoDB', 'Tailwind CSS'],
+      title: "Eleglance-Perfume-FrontEnd",
+      description:
+        "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      longDescription:
+        "A sophisticated task management application designed for team collaboration. Built with React and Express for real-time updates, this application provides an intuitive interface for managing projects, tasks, and team workflows. Features include drag-and-drop task organization, real-time notifications, and comprehensive reporting.",
+      image:
+        "https://cdn.shortpixel.ai/spai/w_1750+q_lossless+ret_img+to_webp/websitedemos.net/inessa-perfumes-04/wp-content/uploads/sites/1112/2022/07/demo-screenshot.jpg",
+      technologies: ["React", "Express", "MongoDB", "Tailwind CSS"],
       features: [
         "Explore premium fragrances categorized by notes, occasions, and brands.",
         "AI-powered tool to match perfumes with your personality and mood.",
@@ -115,57 +172,63 @@ function App() {
         "Save perfumes you love for easy access later.",
         "Smooth checkout, safe payments, and order tracking.",
         "Tips, trends, and fragrance layering ideas from experts.",
-        "Be the first to know about new launches and limited editions."
+        "Be the first to know about new launches and limited editions.",
       ],
-      duration: '4 months',
-      teamSize: '3 developers',
-      role: 'Lead Frontend Developer',
-      githubUrl: 'https://github.com/AnshikSuhane/frontend',
-      liveUrl: 'https://perfumes-steel.vercel.app'
+      duration: "4 months",
+      teamSize: "3 developers",
+      role: "Lead Frontend Developer",
+      githubUrl: "https://github.com/AnshikSuhane/frontend",
+      liveUrl: "https://perfumes-steel.vercel.app",
     },
     {
-      title: 'Weather Analytics Dashboard',
-      description: 'Real-time weather data visualization dashboard with interactive charts, location-based forecasts, and historical data analysis.',
-      longDescription: 'An advanced weather analytics dashboard that provides comprehensive weather data visualization and analysis. Built with Next.js and Chart.js, this application offers real-time weather updates, historical data analysis, and predictive forecasting. The dashboard features interactive charts, customizable widgets, and location-based weather tracking.',
-      image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'TypeScript', 'Chart.js', 'Weather API'],
+      title: "Weather Analytics Dashboard",
+      description:
+        "Real-time weather data visualization dashboard with interactive charts, location-based forecasts, and historical data analysis.",
+      longDescription:
+        "An advanced weather analytics dashboard that provides comprehensive weather data visualization and analysis. Built with Next.js and Chart.js, this application offers real-time weather updates, historical data analysis, and predictive forecasting. The dashboard features interactive charts, customizable widgets, and location-based weather tracking.",
+      image:
+        "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+      technologies: ["Next.js", "TypeScript", "Chart.js", "Weather API"],
       features: [
-        'Real-time weather data integration',
-        'Interactive charts and visualizations',
-        'Historical weather data analysis',
-        'Location-based weather tracking',
-        'Customizable dashboard widgets',
-        'Weather alerts and notifications',
-        'Export data functionality',
-        'Mobile-responsive design'
+        "Real-time weather data integration",
+        "Interactive charts and visualizations",
+        "Historical weather data analysis",
+        "Location-based weather tracking",
+        "Customizable dashboard widgets",
+        "Weather alerts and notifications",
+        "Export data functionality",
+        "Mobile-responsive design",
       ],
-      duration: '2 months',
-      teamSize: '1 developer',
-      role: 'Solo Full Stack Developer',
-      githubUrl: 'https://github.com/AnshikSuhane/frontend',
-      liveUrl: 'https://example.com'
-    }
+      duration: "2 months",
+      teamSize: "1 developer",
+      role: "Solo Full Stack Developer",
+      githubUrl: "https://github.com/AnshikSuhane/frontend",
+      liveUrl: "https://example.com",
+    },
   ];
-  
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      <Navigation 
-        activeSection={activeSection} 
+      <Navigation
+        activeSection={activeSection}
         onNavigate={handleNavigation}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
       />
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
         <ParticleBackground />
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <div className="mb-8 mt-24 sm:mt-0">
             <img
-               src={personal}
+              src={personal}
               alt="Profile"
               className="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl shadow-blue-500/50"
             />
@@ -177,30 +240,35 @@ function App() {
           </h1>
           <div className="text-2xl sm:text-3xl lg:text-4xl mb-8 h-12">
             <TypingAnimation
-
               texts={[
-                'Full Stack Developer',
-                'React Specialist',
-                'Node.js Expert',
+                "Full Stack Developer",
+                "React Specialist",
+                "Node.js Expert",
                 // 'UI/UX Enthusiast'
               ]}
             />
           </div>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            I don't just build websites-I create digital experiences that are fast, functional and unforgettable. with a sharp eye for detail
-            and a strong command of modern web technologies, I turn bold ideas into seamless, scalable solutions.
+            I don't just build websites-I create digital experiences that are
+            fast, functional and unforgettable. with a sharp eye for detail and
+            a strong command of modern web technologies, I turn bold ideas into
+            seamless, scalable solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={() => handleNavigation('projects')}
+              onClick={() => handleNavigation("projects")}
             >
               View My Work
             </button>
-            <a href="https://drive.google.com/file/d/1mFyzEMPPThzMm2LkhldGY-2FAHwTFVJI/view?usp=sharing" download={"Anuj_Suhane_Resume.pdf"} className="w-full sm:w-auto">
-              <button
-                className="px-8 py-4 border-2 border-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:bg-opacity-20 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-              >
+            <a
+              href="https://drive.google.com/uc?export=download&id=1RxMm8Mqvlh6n2e9m4kPh_sGLEF0xln3J"
+              download="Anuj_Suhane_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <button className="px-8 py-4 border-2 border-blue-500 rounded-full font-semibold hover:bg-blue-500 hover:bg-opacity-20 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
                 <Download size={20} />
                 Download CV
               </button>
@@ -224,17 +292,22 @@ function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                <h3 className="text-2xl font-semibold mb-6 text-blue-400">Who I Am</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-blue-400">
+                  Who I Am
+                </h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                 "I'm a passionate Full Stack Developer, recently completed my Full Stack Development course. 
-                 I specialize in modern JavaScript frameworks like React and Node.js, and I have hands-on 
-                 experience in building projects that cover both frontend and backend development.
+                  "I'm a passionate Full Stack Developer, recently completed my
+                  Full Stack Development course. I specialize in modern
+                  JavaScript frameworks like React and Node.js, and I have
+                  hands-on experience in building projects that cover both
+                  frontend and backend development.
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                 My journey in web development started with a curiosity about how websites work,
-                  and it has grown into a strong passion for creating seamless user experiences
-                   and scalable applications. As a fresher, I’m eager to contribute my skills,
-                    keep learning, and grow with real-world challenges.
+                  My journey in web development started with a curiosity about
+                  how websites work, and it has grown into a strong passion for
+                  creating seamless user experiences and scalable applications.
+                  As a fresher, I’m eager to contribute my skills, keep
+                  learning, and grow with real-world challenges.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 text-blue-400">
@@ -248,12 +321,14 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl p-6 border border-blue-500/30 text-center hover:transform hover:scale-105 transition-all duration-300">
                 <Code size={48} className="mx-auto mb-4 text-blue-400" />
                 <h4 className="text-lg font-semibold mb-2">Frontend</h4>
-                <p className="text-gray-400 text-sm">React, Vue.js, TypeScript</p>
+                <p className="text-gray-400 text-sm">
+                  React, Vue.js, TypeScript
+                </p>
               </div>
               <div className="bg-gradient-to-br from-green-600/20 to-teal-600/20 backdrop-blur-sm rounded-xl p-6 border border-green-500/30 text-center hover:transform hover:scale-105 transition-all duration-300">
                 <Server size={48} className="mx-auto mb-4 text-green-400" />
@@ -276,7 +351,10 @@ function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/30">
+      <section
+        id="skills"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/30"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -412,31 +490,38 @@ function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Work Together</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                Let's Work Together
+              </h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. 
-                Whether you have a question or just want to say hi, feel free to reach out!
+                I'm always interested in new opportunities and exciting
+                projects. Whether you have a question or just want to say hi,
+                feel free to reach out!
               </p>
-              
+
               <div className="space-y-4">
-                <a 
+                <a
                   href="mailto:john.doe@example.com"
                   className="flex items-center gap-4 p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group"
                 >
                   <Mail className="text-blue-400" size={24} />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-gray-400 group-hover:text-blue-400 transition-colors duration-300">anujsuhane27@gmail.com</p>
+                    <p className="text-gray-400 group-hover:text-blue-400 transition-colors duration-300">
+                      anujsuhane27@gmail.com
+                    </p>
                   </div>
                 </a>
-                <a 
+                <a
                   href="tel:+15551234567"
                   className="flex items-center gap-4 p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-green-500/50 transition-all duration-300 group"
                 >
                   <Phone className="text-green-400" size={24} />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-gray-400 group-hover:text-green-400 transition-colors duration-300">+91 7999 018 102</p>
+                    <p className="text-gray-400 group-hover:text-green-400 transition-colors duration-300">
+                      +91 7999 018 102
+                    </p>
                   </div>
                 </a>
                 <div className="flex items-center gap-4 p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700">
@@ -460,7 +545,8 @@ function App() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-800/50 border-t border-gray-700">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 Anuj Suhane. All rights reserved. Built with React & Tailwind CSS.
+            © 2025 Anuj Suhane. All rights reserved. Built with React & Tailwind
+            CSS.
           </p>
         </div>
       </footer>
