@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
@@ -8,21 +8,21 @@ interface NavigationProps {
   setIsMenuOpen: (isOpen: boolean) => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ 
-  activeSection, 
-  onNavigate, 
-  isMenuOpen, 
-  setIsMenuOpen 
+export const Navigation: React.FC<NavigationProps> = ({
+  activeSection,
+  onNavigate,
+  isMenuOpen,
+  setIsMenuOpen,
 }) => {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
 
-    { id: 'contact', label: 'Contact' }
+    { id: "contact", label: "Contact" },
   ];
 
   useEffect(() => {
@@ -30,8 +30,8 @@ export const Navigation: React.FC<NavigationProps> = ({
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (sectionId: string) => {
@@ -40,10 +40,14 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w mx-auto px-6 sm:px-6 lg:px-10">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-900/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w mx-auto px-6 sm:px-6 lg:px-10 relative">
         <div className="flex items-center justify-between h-20">
           <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Portfolio
@@ -58,8 +62,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                   onClick={() => handleNavClick(item.id)}
                   className={`px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-blue-400 ${
                     activeSection === item.id
-                      ? 'text-blue-400 border-b-2 border-blue-400'
-                      : 'text-gray-300 hover:border-b-2 hover:border-blue-400'
+                      ? "text-blue-400 border-b-2 border-blue-400"
+                      : "text-gray-300 hover:border-b-2 hover:border-blue-400"
                   }`}
                 >
                   {item.label}
@@ -81,7 +85,18 @@ export const Navigation: React.FC<NavigationProps> = ({
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-900/95 backdrop-blur-md">
+          <div className="md:hidden bg-gray-900/95 backdrop-blur-md absolute top-0 left-0 w-full h-screen z-[1000]">
+            <div className="flex items-center justify-between px-6 h-20">
+              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Portfolio
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-300 hover:text-white p-2"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <button
@@ -89,8 +104,8 @@ export const Navigation: React.FC<NavigationProps> = ({
                   onClick={() => handleNavClick(item.id)}
                   className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-300 ${
                     activeSection === item.id
-                      ? 'text-blue-400 bg-gray-800'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                      ? "text-blue-400 bg-gray-800"
+                      : "text-gray-300 hover:text-white hover:bg-gray-800"
                   }`}
                 >
                   {item.label}

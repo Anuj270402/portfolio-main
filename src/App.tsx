@@ -163,11 +163,11 @@ function App() {
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <ParticleBackground />
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
+          <div className="mb-8 mt-24 sm:mt-0">
             <img
                src={personal}
               alt="Profile"
-              className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl shadow-blue-500/50"
+              className="w-32 h-32 object-cover rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl shadow-blue-500/50"
             />
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
